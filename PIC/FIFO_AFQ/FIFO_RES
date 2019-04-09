@@ -1,0 +1,60 @@
+------------------------------------------------------------
+Server listening on UDP port 12345
+Receiving 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[ 12] local 10.0.1.10 port 12345 connected with 10.0.0.10 port 35604
+[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
+[ 12]  0.0- 1.0 sec   142 KBytes  1.16 Mbits/sec   2.173 ms    0/   99 (0%)
+[ 13] local 10.0.1.10 port 12345 connected with 10.0.0.10 port 40320
+[ 13]  0.0- 1.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (-nan%)
+[ 12]  1.0- 2.0 sec   119 KBytes   976 Kbits/sec   5.142 ms    0/   83 (0%)
+[ 13]  1.0- 2.0 sec  23.0 KBytes   188 Kbits/sec  10.232 ms    0/   16 (0%)
+[SUM]  1.0- 2.0 sec   142 KBytes  1.16 Mbits/sec
+[ 12]  2.0- 3.0 sec   109 KBytes   894 Kbits/sec   5.716 ms    0/   76 (0%)
+[ 13]  2.0- 3.0 sec  35.9 KBytes   294 Kbits/sec  15.243 ms    0/   25 (0%)
+[SUM]  2.0- 3.0 sec   145 KBytes  1.19 Mbits/sec
+[ 12]  3.0- 4.0 sec   106 KBytes   870 Kbits/sec   5.291 ms    0/   74 (0%)
+[ 13]  3.0- 4.0 sec  35.9 KBytes   294 Kbits/sec  16.236 ms    0/   25 (0%)
+[SUM]  3.0- 4.0 sec   142 KBytes  1.16 Mbits/sec
+[ 12]  4.0- 5.0 sec   108 KBytes   882 Kbits/sec   5.299 ms    0/   75 (0%)
+[ 13]  4.0- 5.0 sec  35.9 KBytes   294 Kbits/sec  16.436 ms    0/   25 (0%)
+[SUM]  4.0- 5.0 sec   144 KBytes  1.18 Mbits/sec
+[ 12]  5.0- 6.0 sec   109 KBytes   894 Kbits/sec   5.701 ms    0/   76 (0%)
+[ 13]  5.0- 6.0 sec  35.9 KBytes   294 Kbits/sec  16.475 ms    0/   25 (0%)
+[SUM]  5.0- 6.0 sec   145 KBytes  1.19 Mbits/sec
+[ 12]  6.0- 7.0 sec   106 KBytes   870 Kbits/sec   5.276 ms    0/   74 (0%)
+[ 13]  6.0- 7.0 sec  35.9 KBytes   294 Kbits/sec  16.487 ms    0/   25 (0%)
+[SUM]  6.0- 7.0 sec   142 KBytes  1.16 Mbits/sec
+[ 12]  7.0- 8.0 sec   108 KBytes   882 Kbits/sec   5.304 ms    0/   75 (0%)
+[ 13]  7.0- 8.0 sec  35.9 KBytes   294 Kbits/sec  16.485 ms    0/   25 (0%)
+[SUM]  7.0- 8.0 sec   144 KBytes  1.18 Mbits/sec
+[ 12]  8.0- 9.0 sec   108 KBytes   882 Kbits/sec   5.296 ms    0/   75 (0%)
+[ 13]  8.0- 9.0 sec  35.9 KBytes   294 Kbits/sec  16.484 ms    0/   25 (0%)
+[SUM]  8.0- 9.0 sec   144 KBytes  1.18 Mbits/sec
+[ 12]  9.0-10.0 sec   108 KBytes   882 Kbits/sec   5.282 ms    0/   75 (0%)
+[ 13]  9.0-10.0 sec  35.9 KBytes   294 Kbits/sec  16.485 ms    0/   25 (0%)
+[SUM]  9.0-10.0 sec   144 KBytes  1.18 Mbits/sec
+[ 12] 10.0-11.0 sec   108 KBytes   882 Kbits/sec   5.269 ms    0/   75 (0%)
+[ 13] 10.0-11.0 sec  35.9 KBytes   294 Kbits/sec  16.474 ms    0/   25 (0%)
+[SUM] 10.0-11.0 sec   144 KBytes  1.18 Mbits/sec
+[ 12] 11.0-12.0 sec   108 KBytes   882 Kbits/sec   5.281 ms    0/   75 (0%)
+[ 13] 11.0-12.0 sec  35.9 KBytes   294 Kbits/sec  16.477 ms    0/   25 (0%)
+[SUM] 11.0-12.0 sec   144 KBytes  1.18 Mbits/sec
+[ 12] 12.0-13.0 sec   109 KBytes   894 Kbits/sec   5.698 ms    0/   76 (0%)
+[ 13] 12.0-13.0 sec  35.9 KBytes   294 Kbits/sec  16.472 ms    0/   25 (0%)
+[SUM] 12.0-13.0 sec   145 KBytes  1.19 Mbits/sec
+[ 12] 13.0-14.0 sec   106 KBytes   870 Kbits/sec   5.279 ms    0/   74 (0%)
+[ 13] 13.0-14.0 sec  35.9 KBytes   294 Kbits/sec  16.486 ms    0/   25 (0%)
+[SUM] 13.0-14.0 sec   142 KBytes  1.16 Mbits/sec
+[ 12] 14.0-15.0 sec   108 KBytes   882 Kbits/sec   5.284 ms    0/   75 (0%)
+[ 13] 14.0-15.0 sec  35.9 KBytes   294 Kbits/sec  16.477 ms    0/   25 (0%)
+[SUM] 14.0-15.0 sec   144 KBytes  1.18 Mbits/sec
+[ 12] 15.0-16.0 sec   108 KBytes   882 Kbits/sec   5.264 ms    0/   75 (0%)
+[ 13] 15.0-16.0 sec  35.9 KBytes   294 Kbits/sec  16.489 ms    0/   25 (0%)
+[SUM] 15.0-16.0 sec   144 KBytes  1.18 Mbits/sec
+[ 12]  0.0-16.6 sec  1.79 MBytes   906 Kbits/sec   5.295 ms    0/ 1276 (0%)
+[ 12]  0.0-16.6 sec  1 datagrams received out-of-order
+[SUM]  0.0-16.6 sec  1.79 MBytes   906 Kbits/sec
+[ 13] 16.0-17.0 sec  74.6 KBytes   612 Kbits/sec  12.966 ms    0/   52 (0%)
+[ 13]  0.0-17.1 sec   613 KBytes   294 Kbits/sec  12.700 ms    0/  427 (0%)

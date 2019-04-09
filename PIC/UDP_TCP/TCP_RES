@@ -1,0 +1,26 @@
+------------------------------------------------------------
+Server listening on TCP port 12345
+TCP window size: 85.3 KByte (default)
+------------------------------------------------------------
+[ 13] local 10.0.1.10 port 12345 connected with 10.0.0.10 port 37042
+[ ID] Interval       Transfer     Bandwidth
+[ 13]  0.0- 1.0 sec   119 KBytes   973 Kbits/sec
+[ 13]  1.0- 2.0 sec  4.24 KBytes  34.8 Kbits/sec
+[ 13]  2.0- 3.0 sec  15.6 KBytes   127 Kbits/sec
+[ 13]  3.0- 4.0 sec  19.8 KBytes   162 Kbits/sec
+[ 13]  4.0- 5.0 sec  19.8 KBytes   162 Kbits/sec
+[ 13]  5.0- 6.0 sec  21.2 KBytes   174 Kbits/sec
+[ 13]  6.0- 7.0 sec  22.6 KBytes   185 Kbits/sec
+[ 13]  7.0- 8.0 sec  0.00 Bytes  0.00 bits/sec
+[ 13]  8.0- 9.0 sec  32.5 KBytes   266 Kbits/sec
+[ 13]  9.0-10.0 sec  25.5 KBytes   209 Kbits/sec
+[ 13] 10.0-11.0 sec  14.1 KBytes   116 Kbits/sec
+[ 13] 11.0-12.0 sec  4.24 KBytes  34.8 Kbits/sec
+[ 13] 12.0-13.0 sec  24.0 KBytes   197 Kbits/sec
+[ 13] 13.0-14.0 sec  21.2 KBytes   174 Kbits/sec
+[ 13] 14.0-15.0 sec  18.4 KBytes   151 Kbits/sec
+[ 13] 15.0-16.0 sec  22.6 KBytes   185 Kbits/sec
+[ 13] 16.0-17.0 sec  28.3 KBytes   232 Kbits/sec
+[ 13] 17.0-18.0 sec  70.7 KBytes   579 Kbits/sec
+[ 13] 18.0-19.0 sec  21.2 KBytes   174 Kbits/sec
+[ 13]  0.0-19.2 sec   512 KBytes   219 Kbits/sec
