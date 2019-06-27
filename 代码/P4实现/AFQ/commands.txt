@@ -1,0 +1,27 @@
+table_set_default ipv4_forward do_drop
+table_set_default cal_hash do_cal_hash
+table_set_default get_counts do_get_counts
+table_set_default get_min1 do_get_min1
+table_set_default get_min2 do_get_min2
+table_set_default get_min3 do_get_min3
+table_set_default get_min4 do_get_min4
+table_set_default get_curr do_get_curr
+table_set_default get_bid1 do_get_bid1
+table_set_default get_bid2 do_get_bid2
+table_set_default update_bid do_update_bid
+table_set_default get_pkt_round do_get_pkt_round
+table_set_default drop_table do_drop
+table_set_default update_pri do_update_pri
+table_set_default update_count1 do_update_count1
+table_set_default update_count2 do_update_count2
+table_set_default update_count3 do_update_count3
+table_set_default update_count4 do_update_count4
+table_set_default update_cm do_update_cm
+table_set_default update_curr do_update_curr
+table_set_default send_frame do_drop
+table_set_default add_debug do_add_debug
+table_set_default update_debug do_update_bebug
+table_add send_frame rewrite_mac 1 => 00:aa:bb:00:00:00
+table_add send_frame rewrite_mac 2 => 00:aa:bb:00:00:01
+table_add ipv4_forward do_forward 10.0.1.10/32 => 00:04:00:00:00:01 2
+table_add ipv4_forward do_forward 10.0.0.10/32 => 00:04:00:00:00:00 1

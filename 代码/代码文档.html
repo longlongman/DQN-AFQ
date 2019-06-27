@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>代码文档.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+</head>
+<body>
+<h1 id="%E4%BB%A3%E7%A0%81%E6%96%87%E6%A1%A3">代码文档</h1>
+<p>本文档仅针对笔者在本科毕业论文<strong>自适应公平队列算法的设计与实现</strong>中编写的代码进行说明。代码未经过严格的测试，或许存在很多BUG，因此请读者不要太过相信这份文档。</p>
+<!-- TOC -->
+<ul>
+<li><a href="#%E4%BB%A3%E7%A0%81%E6%96%87%E6%A1%A3">代码文档</a>
+<ul>
+<li><a href="#ns-3%E5%AE%9E%E7%8E%B0">ns-3实现</a>
+<ul>
+<li><a href="#afq">AFQ</a>
+<ul>
+<li><a href="#afq-queue-disch">afq-queue-disc.h</a></li>
+<li><a href="#afq-queue-disccc">afq-queue-disc.cc</a></li>
+</ul>
+</li>
+<li><a href="#dqn-afq">DQN-AFQ</a>
+<ul>
+<li><a href="#dqn-queue-disch">dqn-queue-disc.h</a></li>
+<li><a href="#dqn-queue-disccc">dqn-queue-disc.cc</a></li>
+</ul>
+</li>
+<li><a href="#%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81">测试代码</a>
+<ul>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95">基本性能测试</a></li>
+<li><a href="#%E5%85%AC%E5%B9%B3%E6%80%A7%E4%B8%8E%E6%94%B6%E6%95%9B%E6%80%A7">公平性与收敛性</a></li>
+<li><a href="#%E6%97%B6%E5%BB%B6%E5%AE%9E%E9%AA%8C%E5%92%8C%E5%8F%82%E6%95%B0%E8%AE%A8%E8%AE%BA">时延实验和参数讨论</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#p4%E5%AE%9E%E7%8E%B0">p4实现</a>
+<ul>
+<li><a href="#p4-afq">p4-AFQ</a>
+<ul>
+<li><a href="#afqp4">afq.p4</a></li>
+<li><a href="#commandstxt">commands.txt</a></li>
+<li><a href="#queueingh">queueing.h</a></li>
+</ul>
+</li>
+<li><a href="#p4-dqn-afq">p4-DQN-AFQ</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h2 id="ns-3%E5%AE%9E%E7%8E%B0">ns-3实现</h2>
+<p>这里描述的是如何使用ns-3实现AFQ与DQN-AFQ以及对实现的算法如何进行测试。</p>
+<h3 id="afq">AFQ</h3>
+<p>使用ns-3实现AFQ，需要编写两个文件，afq-queue-disc.h和afq-queue-disc.cc，前者为AfqQueueDisc类的声明，后者为具体方法的实现，下面将对这两个文件进行详细的介绍。</p>
+<h4 id="afq-queue-disch">afq-queue-disc.h</h4>
+<pre class="hljs"><code><div><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AfqQueueDisc</span> :</span> <span class="hljs-keyword">public</span> QueueDisc
+</div></code></pre>
+<p>AfqQueueDisc为实现AFQ算法的类，QueueDisc为ns-3自带的用于定义队列调度策略的父类，在其中定义了许多有用的接口，事实上我们的工作就是继承该父类，实现其定义的接口，关于QueueDisc更多详细的内容，请参考<a href="https://www.nsnam.org/docs/release/3.29/doxygen/classns3_1_1_queue_disc.html">QueueDisc</a>或到ns-3的官方文档中搜索QueueDisc。</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">static</span> TypeId <span class="hljs-title">GetTypeId</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>;
+AfqQueueDisc();
+<span class="hljs-keyword">virtual</span> ~AfqQueueDisc();
+<span class="hljs-keyword">static</span> <span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* LIMIT_EXCEEDED_DROP = <span class="hljs-string">"Queue disc limit exceeded"</span>;
+<span class="hljs-keyword">static</span> <span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* QUEUE_EXCEEDED_DROP = <span class="hljs-string">"Queue number limit exceeded"</span>;
+</div></code></pre>
+<p>AfqQueueDisc类中的<code>GetTypeId</code>是一个与使用命令行对算法参数进行配置相关的接口，我们可以使用它对算法参数的初始值进行设置，同时也可以检查输入的参数是否符合算法需要，而最后两句字符串<code>LIMIT_EXCEEDED_DROP</code>和<code>QUEUE_EXCEEDED_DROP</code>，对应着两种丢包的情况，它们只作为log进行输出，并没有太多作用。</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-keyword">bool</span> <span class="hljs-title">DoEnqueue</span><span class="hljs-params">(Ptr&lt;QueueDiscItem&gt; item)</span></span>;
+<span class="hljs-keyword">virtual</span> Ptr&lt;QueueDiscItem&gt; DoDequeue (<span class="hljs-keyword">void</span>);
+<span class="hljs-keyword">virtual</span> Ptr&lt;<span class="hljs-keyword">const</span> QueueDiscItem&gt; DoPeek (<span class="hljs-keyword">void</span>);
+<span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-keyword">bool</span> <span class="hljs-title">CheckConfig</span> <span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">InitializeParams</span> <span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>;
+</div></code></pre>
+<p>上面就是我们需要实现的接口函数，其中<code>DoEnqueue</code>负责数据包入队，对应AFQ中的入队模块，而<code>DoDequeue</code>负责数据包出队，对应AFQ中的出队模块，<code>DoPeek</code>与<code>DoDequeue</code>逻辑类似，只不过前者并不真正出队，最后两个函数可进一步对算法中的参数进行核查与设置。</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">uint32_t</span> count_min_sketch[<span class="hljs-number">4</span>][<span class="hljs-number">16384</span>];
+<span class="hljs-keyword">uint32_t</span> curr;
+<span class="hljs-keyword">uint32_t</span> DT;
+<span class="hljs-keyword">uint8_t</span> queue_number;
+<span class="hljs-keyword">uint32_t</span> BPR;
+</div></code></pre>
+<p>对于AFQ特有的参数，也需要在该文件中定义，可以看到在ns-3下，count-min sketch结构使用一个无符号整型的二维数组实现，<code>curr</code>为当前轮数，<code>DT</code>为队列长度阈值，<code>queue_number</code>为多队列结构的队列总数。</p>
+<h4 id="afq-queue-disccc">afq-queue-disc.cc</h4>
+<p><code>GetTypeId</code>的具体实现如下：</p>
+<pre class="hljs"><code><div>TypeId AfqQueueDisc::GetTypeId(<span class="hljs-keyword">void</span>)
+{
+    <span class="hljs-keyword">static</span> TypeId tid = TypeId(<span class="hljs-string">"ns3::AfqQueueDisc"</span>)
+      .SetParent&lt;QueueDisc&gt;()
+      .SetGroupName(<span class="hljs-string">"TrafficControl"</span>)
+      .AddConstructor&lt;AfqQueueDisc&gt;()
+      .AddAttribute(<span class="hljs-string">"MaxSize"</span>,
+                    <span class="hljs-string">"The max queue size"</span>,
+                    QueueSizeValue(QueueSize(<span class="hljs-string">"1024p"</span>)),
+                    MakeQueueSizeAccessor(&amp;QueueDisc::SetMaxSize,
+                                          &amp;QueueDisc::GetMaxSize),
+                    MakeQueueSizeChecker())
+      .AddAttribute(<span class="hljs-string">"QueueNumber"</span>,
+                    <span class="hljs-string">"The number of Queues"</span>,
+                    UintegerValue(<span class="hljs-number">64</span>),
+                    MakeUintegerAccessor(&amp;AfqQueueDisc::queue_number),
+                    MakeUintegerChecker&lt;<span class="hljs-keyword">uint8_t</span>&gt;())
+      .AddAttribute(<span class="hljs-string">"DT"</span>,
+                    <span class="hljs-string">"Dynamic threshold"</span>,
+                    UintegerValue(<span class="hljs-number">1024</span>),
+                    MakeUintegerAccessor(&amp;AfqQueueDisc::DT),
+                    MakeUintegerChecker&lt;<span class="hljs-keyword">uint32_t</span>&gt;())
+      .AddAttribute(<span class="hljs-string">"BPR"</span>,
+                    <span class="hljs-string">"Byte per round"</span>,
+                    UintegerValue(<span class="hljs-number">4096</span>),
+                    MakeUintegerAccessor(&amp;AfqQueueDisc::BPR),
+                    MakeUintegerChecker&lt;<span class="hljs-keyword">uint32_t</span>&gt;());
+    <span class="hljs-keyword">return</span> tid;
+}
+</div></code></pre>
+<p>其中<code>tid</code>可用于找到该类的对象，另外通过<code>AddAttribute</code>函数可以实现之前所说的用命令行对算法参数初始值进行设置，可以看到这里使用了类似<code>MakeQueue***Accessor</code>的函数对之前定义的变量进行了绑定，从命令行中输入的参数最终会储存在这些变量中。</p>
+<p>函数<code>DoEnqueue</code>的实现如下：</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">bool</span> AfqQueueDisc::DoEnqueue(Ptr&lt;QueueDiscItem&gt; item)
+{
+    NS_LOG_FUNCTION(<span class="hljs-keyword">this</span> &lt;&lt; item);
+
+    <span class="hljs-keyword">uint32_t</span> hash_values[<span class="hljs-number">4</span>];
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">uint8_t</span> i = <span class="hljs-number">0</span>;i &lt; <span class="hljs-number">4</span>;i++)
+      {
+          hash_values[i] = item -&gt; Hash(i) % <span class="hljs-number">16384</span>;
+      }
+
+    <span class="hljs-keyword">uint32_t</span> count_min = count_min_sketch[<span class="hljs-number">0</span>][hash_values[<span class="hljs-number">0</span>]];
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">uint8_t</span> i = <span class="hljs-number">0</span>;i &lt; <span class="hljs-number">4</span>;i++)
+      {
+          <span class="hljs-keyword">if</span>(count_min &gt; count_min_sketch[i][hash_values[i]])
+            {
+                count_min = count_min_sketch[i][hash_values[i]];
+            }
+      }
+
+    <span class="hljs-keyword">uint32_t</span> bid = (count_min &lt; BPR * curr) ? BPR * curr : count_min;
+    bid =  bid + item -&gt; GetSize();
+    <span class="hljs-keyword">uint32_t</span> pkt_round = bid / BPR;
+    <span class="hljs-keyword">if</span>(pkt_round - curr &gt;= queue_number)
+      {
+          NS_LOG_LOGIC(<span class="hljs-string">"lack of queues -- dropping pkt"</span>);
+          DropBeforeEnqueue (item, QUEUE_EXCEEDED_DROP);
+          <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+      }
+
+    <span class="hljs-keyword">if</span>(GetInternalQueue(pkt_round % queue_number)-&gt;GetNPackets() + <span class="hljs-number">1</span> &gt; DT)
+      {
+          NS_LOG_LOGIC (<span class="hljs-string">"Queue full -- dropping pkt"</span>);
+          DropBeforeEnqueue (item, LIMIT_EXCEEDED_DROP);
+          <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+      }
+
+    <span class="hljs-keyword">bool</span> retval = GetInternalQueue(pkt_round % queue_number)-&gt;Enqueue(item);
+
+    <span class="hljs-keyword">if</span>(retval)
+      {
+          <span class="hljs-keyword">for</span>(<span class="hljs-keyword">uint8_t</span> i = <span class="hljs-number">0</span>;i &lt; <span class="hljs-number">4</span>;i++)
+            {
+                <span class="hljs-keyword">if</span>(bid &gt; count_min_sketch[i][hash_values[i]])
+                  {
+                      count_min_sketch[i][hash_values[i]] = bid;
+                  }
+            }
+            DT = DT - <span class="hljs-number">1</span>;
+      }
+    NS_LOG_LOGIC (<span class="hljs-string">"Number packets "</span> &lt;&lt; GetInternalQueue (pkt_round % queue_number)-&gt;GetNPackets ());
+    NS_LOG_LOGIC (<span class="hljs-string">"Number bytes "</span> &lt;&lt; GetInternalQueue (pkt_round % queue_number)-&gt;GetNBytes ());
+
+    <span class="hljs-keyword">return</span> retval;
+}
+</div></code></pre>
+<p>函数的参数<code>item</code>即为将要入队的数据包，<code>NS_LOG_FUNCTION</code>和<code>NS_LOG_LOGIC</code>为ns-3自带的log子系统，用户可以根据需要自行开启或关闭，更多关于该系统的信息，请参考<a href="https://www.nsnam.org/docs/release/3.29/tutorial/html/tweaking.html#using-the-logging-module">logging</a>。数组<code>hash_values</code>用于存放<code>Hash</code>函数返回的由IP源地址、IP目的地址、源端口、目的端口以及协议类型组成的五元组计算出来的哈希值，它们将作为索引用于访问在afq-queue-disc.h中定义的<code>count_min_sketch</code>。当需要对多队列结构中指定队列进行操作时，先使用<code>GetInternalQueue</code>获得队列的指针，然后再进行下一步操作，如数据包入队<code>GetInternalQueue(pkt_round % queue_number)-&gt;Enqueue(item);</code>。通过使用<code>DropBeforeEnqueue</code>可以将数据包进行丢包操作。以上代码的逻辑基本与AFQ算法的设计相符，通过阅读提出AFQ的论文<strong>Approximating Fair Queueing on Reconfigurable Switches</strong>，将对该部分代码有进一步的了解。最后值得注意的是，由于ns-3只使用单一线程进行网络仿真，因此论文中提到的共享数据同步问题在这里并不存在，代码中只存在一个变量<code>curr</code>保存当前轮数。</p>
+<p>函数<code>DoDequeue</code>的实现如下：</p>
+<pre class="hljs"><code><div>Ptr&lt;QueueDiscItem&gt;
+AfqQueueDisc::DoDequeue(<span class="hljs-keyword">void</span>)
+{
+    NS_LOG_FUNCTION(<span class="hljs-keyword">this</span>);
+
+    Ptr&lt;QueueDiscItem&gt; item;
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">uint8_t</span> i = <span class="hljs-number">0</span>;i &lt; queue_number;i++)
+      {
+          <span class="hljs-keyword">if</span>((item = GetInternalQueue(curr % queue_number)-&gt;Dequeue()) != <span class="hljs-number">0</span>)
+            {
+                DT = DT + <span class="hljs-number">1</span>;
+                <span class="hljs-keyword">return</span> item;
+            }
+          curr = curr + <span class="hljs-number">1</span>;
+      }
+
+    NS_LOG_LOGIC(<span class="hljs-string">"Queues empty"</span>);
+    <span class="hljs-keyword">return</span> item;
+}
+</div></code></pre>
+<p>可以看到代码对每一个队列判读是否为空，为空则令当前轮数<code>curr</code>加1，否则返回取回的数据包。函数<code>DoPeek</code>的实现与之类似，最大的不同是<code>DoPeek</code>并不会将数据包出队。</p>
+<p>函数<code>CheckConfig</code>的实现如下：</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">bool</span>
+AfqQueueDisc::CheckConfig(<span class="hljs-keyword">void</span>)
+{
+    NS_LOG_FUNCTION(<span class="hljs-keyword">this</span>);
+    <span class="hljs-keyword">if</span>(GetNQueueDiscClasses() &gt; <span class="hljs-number">0</span>)
+      {
+          NS_LOG_ERROR(<span class="hljs-string">"AfqQueueDisc cannot have classes"</span>);
+          <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+      }
+
+    <span class="hljs-keyword">if</span>(GetNPacketFilters() &gt; <span class="hljs-number">0</span>)
+      {
+          NS_LOG_ERROR(<span class="hljs-string">"AfqQueueDisc cannot have filter"</span>);
+          <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+      }
+
+    <span class="hljs-keyword">if</span>(GetNInternalQueues() == <span class="hljs-number">0</span>)
+      {
+          <span class="hljs-comment">// add 8 DropTail queue</span>
+          <span class="hljs-keyword">for</span>(<span class="hljs-keyword">uint8_t</span> i = <span class="hljs-number">0</span>;i &lt; queue_number;i++)
+            {
+                AddInternalQueue (CreateObjectWithAttributes&lt;DropTailQueue&lt;QueueDiscItem&gt; &gt;
+                          (<span class="hljs-string">"MaxSize"</span>, QueueSizeValue (GetMaxSize ())));
+            }
+      }
+
+    <span class="hljs-keyword">if</span>(GetNInternalQueues() != queue_number)
+      {
+          NS_LOG_ERROR(<span class="hljs-string">"AfqQueueDisc at least have queue_number internal queues"</span>);
+      }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+}
+</div></code></pre>
+<p>其中重要的部分为判断多队列结构的队列数量是否与预期相符，如果<code>GetNInternalQueues() == 0</code>为真，那么多队列结构中就还未有队列，通过<code>AddInternalQueue</code>函数，可以增加队列数量，完成多队列结构的配置，这里需要注意的是，虽然在添加队列时设置了<code>MaxSize</code>参数，但是队列的长度受到阈值<code>DT</code>的控制，在这里阈值<code>DT</code>的初始值和<code>MaxSize</code>保持一致，这样做保证了控制队列长度的变量是<code>DT</code>而不是<code>MaxSize</code>。</p>
+<h3 id="dqn-afq">DQN-AFQ</h3>
+<p>DQN-AFQ的实现方法与AFQ类似，同样需要编写dqn-queue-disc.h和dqn-queue-disc.cc文件，下面将针对DQN-AFQ与AFQ不同的地方进行说明。</p>
+<h4 id="dqn-queue-disch">dqn-queue-disc.h</h4>
+<pre class="hljs"><code><div><span class="hljs-keyword">uint32_t</span> count_min_sketch[<span class="hljs-number">4</span>][<span class="hljs-number">16384</span>];
+<span class="hljs-keyword">uint32_t</span> curr;
+<span class="hljs-keyword">uint32_t</span> DT;
+<span class="hljs-keyword">uint8_t</span> queue_number;
+<span class="hljs-keyword">uint8_t</span> n;
+<span class="hljs-keyword">uint8_t</span> n_star;
+<span class="hljs-keyword">uint32_t</span> delta;
+<span class="hljs-keyword">uint32_t</span> BPR;
+<span class="hljs-keyword">double</span> tu_low;
+</div></code></pre>
+<p>主要的不同在于多出了一些变量，<code>n</code>为记录当前启用队列数目的变量，<code>n_star</code>为记录将要启用队列数目的变量，<code>delta</code>为队列长度的上阈值，<code>tu_low</code>为缓存利用率的下阈值。</p>
+<h4 id="dqn-queue-disccc">dqn-queue-disc.cc</h4>
+<p><code>GetTypeId</code>的具体实现如下：</p>
+<pre class="hljs"><code><div>TypeId DqnQueueDisc::GetTypeId(<span class="hljs-keyword">void</span>){
+        <span class="hljs-keyword">static</span> TypeId tid = TypeId(<span class="hljs-string">"ns3::DqnQueueDisc"</span>)
+            .SetParent&lt;QueueDisc&gt;()
+            .SetGroupName(<span class="hljs-string">"TrafficControl"</span>)
+            .AddConstructor&lt;DqnQueueDisc&gt;()
+            .AddAttribute(<span class="hljs-string">"MaxSize"</span>,
+                          <span class="hljs-string">"The max queue size"</span>,
+                          QueueSizeValue(QueueSize(<span class="hljs-string">"1024p"</span>)),
+                          MakeQueueSizeAccessor(&amp;QueueDisc::SetMaxSize,
+                                                &amp;QueueDisc::GetMaxSize),
+                          MakeQueueSizeChecker())
+            .AddAttribute(<span class="hljs-string">"QueueNumber"</span>,
+                          <span class="hljs-string">"The max number of Queues"</span>,
+                          UintegerValue(<span class="hljs-number">64</span>),
+                          MakeUintegerAccessor(&amp;DqnQueueDisc::queue_number),
+                          MakeUintegerChecker&lt;<span class="hljs-keyword">uint8_t</span>&gt;())
+            .AddAttribute(<span class="hljs-string">"DT"</span>,
+                          <span class="hljs-string">"Dynamic threshold"</span>,
+                          UintegerValue(<span class="hljs-number">1024</span>),
+                          MakeUintegerAccessor(&amp;DqnQueueDisc::DT),
+                          MakeUintegerChecker&lt;<span class="hljs-keyword">uint32_t</span>&gt;())
+            .AddAttribute(<span class="hljs-string">"BPR"</span>,
+                          <span class="hljs-string">"Byte per round"</span>,
+                          UintegerValue(<span class="hljs-number">4096</span>),
+                          MakeUintegerAccessor(&amp;DqnQueueDisc::BPR),
+                          MakeUintegerChecker&lt;<span class="hljs-keyword">uint32_t</span>&gt;())
+            .AddAttribute(<span class="hljs-string">"TULow"</span>,
+                          <span class="hljs-string">"low utilization"</span>,
+                          DoubleValue(<span class="hljs-number">0.2</span>),
+                          MakeDoubleAccessor(&amp;DqnQueueDisc::tu_low),
+                          MakeDoubleChecker())
+            .AddAttribute(<span class="hljs-string">"Delta"</span>,
+                          <span class="hljs-string">"delta value"</span>,
+                          UintegerValue(<span class="hljs-number">50</span>),
+                          MakeUintegerAccessor(&amp;DqnQueueDisc::delta),
+                          MakeUintegerChecker&lt;<span class="hljs-keyword">uint32_t</span>&gt;());
+        <span class="hljs-keyword">return</span> tid;
+    }
+</div></code></pre>
+<p>可以看到主要的不同就是对更多的变量进行了绑定，使之能通过命令输入来设置初始值。</p>
+<p><code>DoEnqueue</code>的具体实现如下：</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">bool</span> DqnQueueDisc::DoEnqueue(Ptr&lt;QueueDiscItem&gt; item){
+        NS_LOG_FUNCTION(<span class="hljs-keyword">this</span> &lt;&lt; item);
+
+        <span class="hljs-keyword">uint32_t</span> hash_values[<span class="hljs-number">4</span>];
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">uint8_t</span> i = <span class="hljs-number">0</span>;i &lt; <span class="hljs-number">4</span>;i++){
+            hash_values[i] = item -&gt; Hash(i) % <span class="hljs-number">16384</span>;
+        }
+
+        <span class="hljs-keyword">uint32_t</span> count_min = count_min_sketch[<span class="hljs-number">0</span>][hash_values[<span class="hljs-number">0</span>]];
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">uint8_t</span> i = <span class="hljs-number">0</span>;i &lt; <span class="hljs-number">4</span>;i++){
+            <span class="hljs-keyword">if</span>(count_min &gt; count_min_sketch[i][hash_values[i]]){
+                count_min = count_min_sketch[i][hash_values[i]];
+            }
+        }
+
+        <span class="hljs-keyword">uint32_t</span> bid = (count_min &lt; BPR * curr) ? BPR * curr : count_min;
+        bid = bid + item -&gt; GetSize();
+
+        <span class="hljs-keyword">uint32_t</span> pkt_round = bid / BPR;
+
+        <span class="hljs-keyword">uint32_t</span> q1_len;
+
+        <span class="hljs-keyword">bool</span> retval;
+
+        <span class="hljs-keyword">if</span>(pkt_round - curr &gt;= n){
+            <span class="hljs-keyword">if</span>(n == queue_number){
+                NS_LOG_LOGIC(<span class="hljs-string">"lack of queues -- dropping pkt"</span>);
+                DropBeforeEnqueue (item, QUEUE_EXCEEDED_DROP);
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+            }<span class="hljs-keyword">else</span>{
+                <span class="hljs-keyword">if</span>(n == n_star){
+                    <span class="hljs-keyword">double</span> cor = <span class="hljs-number">0</span>;
+                    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">uint8_t</span> i = <span class="hljs-number">0</span>;i &lt; n;i++){
+                        cor = cor + <span class="hljs-number">1.0</span> / (<span class="hljs-number">2.0</span> * (i + <span class="hljs-number">1</span>));
+                    }
+                    <span class="hljs-keyword">double</span> temp_tu = <span class="hljs-number">1</span> - (DT / <span class="hljs-number">1024.0</span>);
+                    <span class="hljs-keyword">double</span> tu = temp_tu / cor;
+                    <span class="hljs-keyword">if</span>(tu &lt; tu_low){
+                        n++;
+                        n_star++;
+                        retval = GetInternalQueue(((curr % queue_number) + pkt_round - curr) % queue_number) -&gt; Enqueue(item);
+                        <span class="hljs-keyword">if</span>(retval){
+                            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">uint8_t</span> i = <span class="hljs-number">0</span>;i &lt; <span class="hljs-number">4</span>;i++){
+                                <span class="hljs-keyword">if</span>(bid &gt; count_min_sketch[i][hash_values[i]]){
+                                    count_min_sketch[i][hash_values[i]] = bid;
+                                }
+                            }
+                            DT--;
+                        }
+                        <span class="hljs-keyword">return</span> retval;
+                    }<span class="hljs-keyword">else</span>{
+                        NS_LOG_LOGIC(<span class="hljs-string">"lack of queues -- dropping pkt"</span>);
+                        DropBeforeEnqueue (item, QUEUE_EXCEEDED_DROP);
+                        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+                    }
+                }<span class="hljs-keyword">else</span>{
+                    NS_LOG_LOGIC(<span class="hljs-string">"lack of queues -- dropping pkt"</span>);
+                    DropBeforeEnqueue (item, QUEUE_EXCEEDED_DROP);
+                    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+                }
+            }
+        }<span class="hljs-keyword">else</span>{
+            <span class="hljs-keyword">if</span>(GetInternalQueue(((curr % queue_number) + pkt_round - curr) % queue_number) -&gt; GetNPackets() + <span class="hljs-number">1</span> &gt; DT){
+                NS_LOG_LOGIC (<span class="hljs-string">"Queue full -- dropping pkt"</span>);
+                DropBeforeEnqueue (item, LIMIT_EXCEEDED_DROP);
+                retval = <span class="hljs-literal">false</span>;
+            }<span class="hljs-keyword">else</span>{
+                retval = GetInternalQueue(((curr % queue_number) + pkt_round - curr) % queue_number) -&gt; Enqueue(item);
+                <span class="hljs-keyword">if</span>(retval){
+                    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">uint8_t</span> i = <span class="hljs-number">0</span>;i &lt; <span class="hljs-number">4</span>;i++){
+                        <span class="hljs-keyword">if</span>(bid &gt; count_min_sketch[i][hash_values[i]]){
+                            count_min_sketch[i][hash_values[i]] = bid;
+                        }
+                    }
+                    DT--;
+                }
+            }
+
+            <span class="hljs-keyword">if</span>(n == n_star &amp;&amp; n_star &gt; <span class="hljs-number">1</span>){
+                q1_len = GetInternalQueue(((curr % queue_number) + <span class="hljs-number">1</span>) % queue_number) -&gt; GetNPackets();
+                <span class="hljs-keyword">if</span>(q1_len &gt; DT - delta){
+                    n_star--;
+                }
+            }
+            <span class="hljs-keyword">return</span> retval;
+        }
+    }
+</div></code></pre>
+<p>这些代码描述的是DQN-AFQ入队模块的功能，其中在计算缓存利用率<code>tu</code>时，引入了一个变量<code>cor</code>，它用于存储缓存利用率的修正系数，将直接计算获得的缓存利用率与之相除即可以得到修正过后的缓存利用率。代码逻辑在毕业论文中有详细的讲述，下图为代码的流程图。</p>
+<p><img src="./DQN-AFQenqueue.png" alt="DQN-AFQ enqueue"></p>
+<p><code>DoDequeue</code>的具体实现如下：</p>
+<pre class="hljs"><code><div>Ptr&lt;QueueDiscItem&gt;
+    DqnQueueDisc::DoDequeue(<span class="hljs-keyword">void</span>){
+
+        NS_LOG_FUNCTION(<span class="hljs-keyword">this</span>);
+
+        Ptr&lt;QueueDiscItem&gt; item;
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">uint8_t</span> i = <span class="hljs-number">0</span>;i &lt; queue_number;i++){
+            <span class="hljs-keyword">if</span>((item = GetInternalQueue(curr % queue_number) -&gt; Dequeue()) != <span class="hljs-number">0</span>){
+                DT++;
+                <span class="hljs-keyword">return</span> item;
+            }
+            curr++;
+            n = n_star;
+        }
+
+        NS_LOG_LOGIC(<span class="hljs-string">"Queues empty"</span>);
+        <span class="hljs-keyword">return</span> item;
+    }
+</div></code></pre>
+<p>基本逻辑与AFQ实现没有区别，只不过每当有队列为空时，需要将代表将启用的队列数目的变量<code>n_star</code>赋值给当前启用的队列数目<code>n</code>。</p>
+<h3 id="%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81">测试代码</h3>
+<p>这一部分主要是对测试代码进行一定的说明，同时给出如何使用测试代码进行测试。</p>
+<p>首先以下代码的使用平台为ns-3.29，所以请按照<a href="https://www.nsnam.org/docs/release/3.29/tutorial/html/getting-started.html">ns-3 install</a>的指示正确安装好ns-3。</p>
+<p>/ns-3.29/src/traffic-control/model和/ns-3.29/src/traffic-control/example为我们主要工作的目录，前者用于存放队列的调度策略，即AFQ、DQN-AFQ，后者为测试代码的所在。</p>
+<p>将前文提及的afq-queue-disc.h、afq-queue-disc.cc、dqn-queue-disc.h和dqn-queue-disc.cc拷贝进model目录下，并将它们的路径添加到/ns-3.29/src/traffic-control/wscript文件的module.source和headers.source字段中，回到/ns-3.29目录运行./waf命令，对新添加的队列调度模型进行编译。</p>
+<h4 id="%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95">基本性能测试</h4>
+<p>此实验的配置描述文件为afq-vs-dqn.cc，其中代码根据ns-3项目中自带的例子以及官方教程编写，例子主要参考了/ns-3.29/src/traffic-control/example目录下的其它文件以及定义一个星形网络的/ns-3.29/examples/tcp/star.cc，官方的教程在这里<a href="https://www.nsnam.org/docs/release/3.29/tutorial/html/index.html">ns-3 Tutorial</a>。</p>
+<pre class="hljs"><code><div>TrafficControlHelper tchmy;
+<span class="hljs-keyword">if</span>(DqnEnable){
+  tchmy.SetRootQueueDisc(<span class="hljs-string">"ns3::DqnQueueDisc"</span>);
+}<span class="hljs-keyword">else</span>{
+  tchmy.SetRootQueueDisc(<span class="hljs-string">"ns3::AfqQueueDisc"</span>);
+}
+tchmy.Install(star.GetHub()-&gt;GetDevice(star.SpokeCount() - <span class="hljs-number">1</span>));
+</div></code></pre>
+<p>在afq-vs-dqn.cc中，使用以上代码选择是否使用DQN-AFQ，变量<code>DqnEnable</code>默认为false，需要在命令输入时置为true才能启用DQN-AFQ。</p>
+<pre class="hljs"><code><div>monitor-&gt;CheckForLostPackets();
+Ptr&lt;Ipv4FlowClassifier&gt; classifier = DynamicCast&lt;Ipv4FlowClassifier&gt;(flowmon.GetClassifier());
+FlowMonitor::FlowStatsContainer stats = monitor-&gt;GetFlowStats();
+<span class="hljs-keyword">for</span>(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">map</span>&lt;FlowId, FlowMonitor::FlowStats&gt;::const_iterator i = stats.begin (); i != stats.end (); ++i){
+  Ipv4FlowClassifier::FiveTuple t = classifier-&gt;FindFlow (i-&gt;first);
+  <span class="hljs-keyword">if</span>(t.sourceAddress == <span class="hljs-string">"10.1.11.2"</span> || t.destinationAddress == <span class="hljs-string">"10.1.11.2"</span>){
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Flow "</span> &lt;&lt; i-&gt;first  &lt;&lt; <span class="hljs-string">" ("</span> &lt;&lt; t.sourceAddress &lt;&lt; <span class="hljs-string">" -&gt; "</span> &lt;&lt; t.destinationAddress &lt;&lt; <span class="hljs-string">") "</span>&lt;&lt;t.protocol&lt;&lt;<span class="hljs-string">"\n"</span>;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"  Duration:   "</span>&lt;&lt;i-&gt;second.timeLastRxPacket.GetSeconds() - i-&gt;second.timeFirstTxPacket.GetSeconds()&lt;&lt;<span class="hljs-string">" Seconds\n"</span>;
+  }
+}
+</div></code></pre>
+<p>以上代码则用于对流量信息进行统计，参考了例子/ns-3.29/examples/tcp/tcp-pacing.cc。</p>
+<p>最后要使用afq-vs-dqn.cc进行测试，首先将该文件拷贝到/ns-3.29/src/traffic-control/example下，并添加以下代码到该example目录下的wscript中。</p>
+<pre class="hljs"><code><div>obj = bld.create_ns3_program(<span class="hljs-string">'afq-vs-dqn'</span>, [<span class="hljs-string">'point-to-point'</span>, <span class="hljs-string">'internet'</span>, <span class="hljs-string">'applications'</span>, <span class="hljs-string">'flow-monitor'</span>, <span class="hljs-string">'traffic-control'</span>,<span class="hljs-string">'netanim'</span>,<span class="hljs-string">'point-to-point-layout'</span>])
+obj.source = <span class="hljs-string">'afq-vs-dqn.cc'</span>
+</div></code></pre>
+<p>退回/ns-3.29目录运行以下类似命令。</p>
+<pre class="hljs"><code><div>./waf --run "afq-vs-dqn --DqnEnable=<span class="hljs-number">1</span> --ns3::DqnQueueDisc::QueueNumber=<span class="hljs-number">8</span> --nSpokes=<span class="hljs-number">12</span>"
+</div></code></pre>
+<p>其中--DqnEnable=1用于启用DQN-AFQ，--ns3::DqnQueueDisc::QueueNumber=8用于指定DQN-AFQ多队列结构的队列数目，--nSpokes=12用于指定星形拓扑有几个spoke节点，类似的命令行参数还有一些，可以通过仿照上面的例子进行调整，也可以通过下面的命令进行查看。</p>
+<pre class="hljs"><code><div>./waf --run "afq-vs-dqn --<span class="hljs-built_in">help</span>"
+</div></code></pre>
+<h4 id="%E5%85%AC%E5%B9%B3%E6%80%A7%E4%B8%8E%E6%94%B6%E6%95%9B%E6%80%A7">公平性与收敛性</h4>
+<p>由于这个实验需要计算实时吞吐量，因此它的流量统计代码与之前发生了较大的变化，具体实现如下。</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">throughput</span><span class="hljs-params">(Ptr&lt;FlowMonitor&gt; monitor,FlowMonitorHelper* flowmon)</span></span>{
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">map</span>&lt;FlowId,<span class="hljs-keyword">uint64_t</span>&gt;::iterator rbit;
+    <span class="hljs-keyword">static</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">map</span>&lt;FlowId,<span class="hljs-keyword">uint64_t</span>&gt; myRxBytes;
+    <span class="hljs-keyword">static</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">map</span>&lt;FlowId,<span class="hljs-keyword">double</span>&gt; myTimeLastRxPacket;
+
+    <span class="hljs-keyword">static</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">map</span>&lt;FlowId,<span class="hljs-keyword">uint64_t</span>&gt; myTxBytes;
+    <span class="hljs-keyword">static</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">map</span>&lt;FlowId,<span class="hljs-keyword">double</span>&gt; myTimeLastTxPacket;
+
+    monitor-&gt;CheckForLostPackets();
+    Ptr&lt;Ipv4FlowClassifier&gt; classifier = DynamicCast&lt;Ipv4FlowClassifier&gt;(flowmon -&gt; GetClassifier());
+    FlowMonitor::FlowStatsContainer stats = monitor-&gt;GetFlowStats();
+    <span class="hljs-keyword">for</span>(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">map</span>&lt;FlowId, FlowMonitor::FlowStats&gt;::const_iterator i = stats.begin (); i != stats.end (); ++i){
+        <span class="hljs-keyword">if</span>((rbit = myRxBytes.find(i-&gt;first)) == myRxBytes.end()){
+            Ipv4FlowClassifier::FiveTuple t = classifier-&gt;FindFlow (i-&gt;first);
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Flow "</span> &lt;&lt; i-&gt;first  &lt;&lt; <span class="hljs-string">" ("</span> &lt;&lt; t.sourceAddress &lt;&lt; <span class="hljs-string">" -&gt; "</span> &lt;&lt; t.destinationAddress &lt;&lt; <span class="hljs-string">")\n"</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"  Tx Packets: "</span> &lt;&lt; i-&gt;second.txPackets &lt;&lt; <span class="hljs-string">"\n"</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"  Tx Bytes:   "</span> &lt;&lt; i-&gt;second.txBytes &lt;&lt; <span class="hljs-string">"\n"</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"  Rx Packets: "</span> &lt;&lt; i-&gt;second.rxPackets &lt;&lt; <span class="hljs-string">"\n"</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"  Rx Bytes:   "</span> &lt;&lt; i-&gt;second.rxBytes &lt;&lt; <span class="hljs-string">"\n"</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"  Duration:   "</span>&lt;&lt;i-&gt;second.timeLastRxPacket.GetSeconds() - i-&gt;second.timeFirstTxPacket.GetSeconds()&lt;&lt;<span class="hljs-string">" Seconds\n"</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"  TxOffered:  "</span> &lt;&lt; i-&gt;second.txBytes * <span class="hljs-number">8.0</span> / (i-&gt;second.timeLastTxPacket.GetSeconds()- i-&gt;second.timeFirstTxPacket.GetSeconds()) / <span class="hljs-number">1000</span> / <span class="hljs-number">1000</span>  &lt;&lt; <span class="hljs-string">" Mbps\n"</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"  Throughput: "</span> &lt;&lt; i-&gt;second.rxBytes * <span class="hljs-number">8.0</span> / (i-&gt;second.timeLastRxPacket.GetSeconds()- i-&gt;second.timeFirstTxPacket.GetSeconds())/<span class="hljs-number">1000</span>/<span class="hljs-number">1000</span>  &lt;&lt; <span class="hljs-string">" Mbps\n"</span>;
+
+            myRxBytes[i-&gt;first] = i-&gt;second.rxBytes;
+            myTimeLastRxPacket[i-&gt;first] = i-&gt;second.timeLastRxPacket.GetSeconds();
+
+            myTxBytes[i-&gt;first] = i-&gt;second.txBytes;
+            myTimeLastTxPacket[i-&gt;first] = i-&gt;second.timeLastTxPacket.GetSeconds();
+        }<span class="hljs-keyword">else</span>{
+            Ipv4FlowClassifier::FiveTuple t = classifier-&gt;FindFlow (i-&gt;first);
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Flow "</span> &lt;&lt; i-&gt;first  &lt;&lt; <span class="hljs-string">" ("</span> &lt;&lt; t.sourceAddress &lt;&lt; <span class="hljs-string">" -&gt; "</span> &lt;&lt; t.destinationAddress &lt;&lt; <span class="hljs-string">")\n"</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"  Tx Packets: "</span> &lt;&lt; i-&gt;second.txPackets &lt;&lt; <span class="hljs-string">"\n"</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"  Tx Bytes:   "</span> &lt;&lt; i-&gt;second.txBytes &lt;&lt; <span class="hljs-string">"\n"</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"  Rx Packets: "</span> &lt;&lt; i-&gt;second.rxPackets &lt;&lt; <span class="hljs-string">"\n"</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"  Rx Bytes:   "</span> &lt;&lt; i-&gt;second.rxBytes &lt;&lt; <span class="hljs-string">"\n"</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"  Duration:   "</span>&lt;&lt;i-&gt;second.timeLastRxPacket.GetSeconds() - i-&gt;second.timeFirstTxPacket.GetSeconds()&lt;&lt;<span class="hljs-string">" Seconds\n"</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"  TxOffered:  "</span> &lt;&lt; (i-&gt;second.txBytes - myTxBytes[i-&gt;first]) * <span class="hljs-number">8.0</span> / (i-&gt;second.timeLastTxPacket.GetSeconds()- myTimeLastTxPacket[i-&gt;first]) / <span class="hljs-number">1000</span> / <span class="hljs-number">1000</span>  &lt;&lt; <span class="hljs-string">" Mbps\n"</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"  Throughput: "</span> &lt;&lt; (i-&gt;second.rxBytes - myRxBytes[i-&gt;first]) * <span class="hljs-number">8.0</span> / (i-&gt;second.timeLastRxPacket.GetSeconds()- myTimeLastRxPacket[i-&gt;first]) / <span class="hljs-number">1000</span> / <span class="hljs-number">1000</span>  &lt;&lt; <span class="hljs-string">" Mbps\n"</span>;
+
+            myRxBytes[i-&gt;first] = i-&gt;second.rxBytes;
+            myTimeLastRxPacket[i-&gt;first] = i-&gt;second.timeLastRxPacket.GetSeconds();
+
+            myTxBytes[i-&gt;first] = i-&gt;second.txBytes;
+            myTimeLastTxPacket[i-&gt;first] = i-&gt;second.timeLastTxPacket.GetSeconds();
+        }
+    }
+    Simulator::Schedule (Seconds (<span class="hljs-number">0.5</span>), &amp;throughput,monitor,flowmon);
+}
+</div></code></pre>
+<p>其中<code>myRxBytes</code>为每条流上次统计时发送的总字节数，而<code>myTimeLastRxPacket</code>为每条流上次统计时最后发出数据包的时间，类似的<code>myTxBytes</code>和<code>myTimeLastTxPacket</code>分别为每条流上次统计时接收的总字节数以及每条流上次统计时最后接收数据包的时间，最后通过调用<code>Simulator::Schedule</code>函数，确定了每隔0.5s进行一次统计。</p>
+<p>测试代码fairness-and-convergence.cc的使用方法与afq-vs-dqn.cc类似，可以参照之前的描述进行实验。</p>
+<h4 id="%E6%97%B6%E5%BB%B6%E5%AE%9E%E9%AA%8C%E5%92%8C%E5%8F%82%E6%95%B0%E8%AE%A8%E8%AE%BA">时延实验和参数讨论</h4>
+<p>这两个实验的测试代码的使用方法与之前的描述大同小异，并且差异主要为命令行参数，因此不再这里赘述了。</p>
+<h2 id="p4%E5%AE%9E%E7%8E%B0">p4实现</h2>
+<p>这一节将说明如何使用p4实现AFQ与DQN-AFQ，同时也将给出使用p4代码进行实验的步骤。</p>
+<p>要使用p4进行实验，请先按照<a href="https://github.com/p4lang/behavioral-model">bmv2</a>以及<a href="https://github.com/p4lang/p4c">p4c</a>的指示安装好软件交换机以及p4语言的编译器。</p>
+<h3 id="p4-afq">p4-AFQ</h3>
+<p>使用p4实现AFQ需要编写afq.p4和commands.txt文件，前者为AFQ的逻辑代码，后者为流表命令，另外还需要对我们使用的软件交换机进行改造，因此需要对/behavioral-model/include/bm/bm_sim/queueing.h进行改造。</p>
+<h4 id="afqp4">afq.p4</h4>
+<p>在afq.p4文件中主要的工作就是完成<code>ingress</code>字段，它对应着AFQ入队模块的部分逻辑，完整的逻辑需要与软件交换机配合实现。afq.p4使用的p4版本为p4-14，参考了p4官方的语言规范以及教程，这里是<a href="https://p4.org/p4-spec/p4-14/v1.0.5/tex/p4.pdf">官方规范</a>，这里是<a href="https://github.com/p4lang/tutorials">官方教程</a>。下面是afq.p4的<code>ingress</code>字段的具体内容。</p>
+<pre class="hljs"><code><div><span class="hljs-comment">//ingress control</span>
+control ingress{
+    <span class="hljs-comment">//make sure the ipv4 packet ttl &gt; 0</span>
+    <span class="hljs-keyword">if</span>(ipv4.ttl &gt; <span class="hljs-number">0</span>){
+        <span class="hljs-comment">//forward the packet according to its dstip</span>
+        apply(ipv4_forward);
+        <span class="hljs-comment">//make sure switch know how to forward the packet</span>
+        <span class="hljs-keyword">if</span>(valid(udp) <span class="hljs-keyword">and</span> standard_metadata.egress_spec != <span class="hljs-number">511</span>){
+            <span class="hljs-comment">//calculate the hashs</span>
+            apply(cal_hash);
+
+            <span class="hljs-comment">//get the count_min from sketch</span>
+            apply(get_counts);
+            apply(get_min1);
+            <span class="hljs-keyword">if</span>(counter_table_metadata.count_min &gt; counter_table_metadata.count2){
+                apply(get_min2);
+            }
+            <span class="hljs-keyword">if</span>(counter_table_metadata.count_min &gt; counter_table_metadata.count3){
+                apply(get_min3);
+            }
+            <span class="hljs-keyword">if</span>(counter_table_metadata.count_min &gt; counter_table_metadata.count4){
+                apply(get_min4);
+            }
+            apply(get_curr);
+            apply(get_bid1);
+            <span class="hljs-keyword">if</span>(bid_metadata.bid &lt; BPR * bid_metadata.curr){
+                apply(get_bid2);
+            }
+            apply(update_bid);
+            apply(get_pkt_round);
+            <span class="hljs-keyword">if</span>((bid_metadata.pkt_round - bid_metadata.curr) &gt;= NQ){
+                apply(drop_table);
+            }<span class="hljs-keyword">else</span>{
+                apply(update_pri);
+                <span class="hljs-keyword">if</span>(bid_metadata.bid &gt; counter_table_metadata.count1){
+                    apply(update_count1);
+                }
+                <span class="hljs-keyword">if</span>(bid_metadata.bid &gt; counter_table_metadata.count2){
+                    apply(update_count2);
+                }
+                <span class="hljs-keyword">if</span>(bid_metadata.bid &gt; counter_table_metadata.count3){
+                    apply(update_count3);
+                }
+                <span class="hljs-keyword">if</span>(bid_metadata.bid &gt; counter_table_metadata.count4){
+                    apply(update_count4);
+                }
+                apply(update_cm);
+                <span class="hljs-comment">// apply(add_debug);</span>
+            }
+        }
+    }
+}
+</div></code></pre>
+<p>在写p4程序时，有几点需要注意，每一个action都需要有对应的table才能运行，table不能被多次apply，p4代码中的除法或取余操作，除数必须为2的幂次方。另外其中使用的count min sketch由4个寄存器组组成，代码如下。</p>
+<pre class="hljs"><code><div><span class="hljs-comment">//count min sketch datastruct</span>
+<span class="hljs-keyword">register</span> r1{width : <span class="hljs-number">32</span>; instance_count : CM_ROW_ELEM_COUNT;}
+<span class="hljs-keyword">register</span> r2{width : <span class="hljs-number">32</span>; instance_count : CM_ROW_ELEM_COUNT;}
+<span class="hljs-keyword">register</span> r3{width : <span class="hljs-number">32</span>; instance_count : CM_ROW_ELEM_COUNT;}
+<span class="hljs-keyword">register</span> r4{width : <span class="hljs-number">32</span>; instance_count : CM_ROW_ELEM_COUNT;}
+</div></code></pre>
+<p><code>width</code>规定了每一个储存单元的字长，而<code>instance_count</code>规定了存储单元的数目。</p>
+<p>afq.p4中的<code>egress</code>字段则对应着AFQ出队模块的部分逻辑，完整的逻辑同样也需要与软件交换机配合，<code>egress</code>字段的代码如下。</p>
+<pre class="hljs"><code><div>control egress{
+    <span class="hljs-keyword">if</span>(valid(udp) <span class="hljs-keyword">and</span> queueing_metadata.deq_qdepth == <span class="hljs-number">0</span>){
+        apply(update_curr);
+    }
+    apply(send_frame);
+}
+</div></code></pre>
+<h4 id="commandstxt">commands.txt</h4>
+<p>这个文件里都是一些关于流表操作的命令，内容如下。</p>
+<pre class="hljs"><code><div>table_set_default ipv4_forward do_drop
+table_set_default cal_hash do_cal_hash
+table_set_default get_counts do_get_counts
+table_set_default get_min1 do_get_min1
+table_set_default get_min2 do_get_min2
+table_set_default get_min3 do_get_min3
+table_set_default get_min4 do_get_min4
+table_set_default get_curr do_get_curr
+table_set_default get_bid1 do_get_bid1
+table_set_default get_bid2 do_get_bid2
+table_set_default update_bid do_update_bid
+table_set_default get_pkt_round do_get_pkt_round
+table_set_default drop_table do_drop
+table_set_default update_pri do_update_pri
+table_set_default update_count1 do_update_count1
+table_set_default update_count2 do_update_count2
+table_set_default update_count3 do_update_count3
+table_set_default update_count4 do_update_count4
+table_set_default update_cm do_update_cm
+table_set_default update_curr do_update_curr
+table_set_default send_frame do_drop
+table_set_default add_debug do_add_debug
+table_set_default update_debug do_update_bebug
+table_add send_frame rewrite_mac 1 =&gt; 00:aa:bb:00:00:00
+table_add send_frame rewrite_mac 2 =&gt; 00:aa:bb:00:00:01
+table_add ipv4_forward do_forward 10.0.1.10/32 =&gt; 00:04:00:00:00:01 2
+table_add ipv4_forward do_forward 10.0.0.10/32 =&gt; 00:04:00:00:00:00 1
+</div></code></pre>
+<p><code>table_set_default</code>为设置缺省流表项的命令，当流表没有匹配时，将默认执行该命令定义的操作，<code>table_add</code>为添加流表项的命令，主要功能为根据相应字段进行匹配，执行对应操作，在这里主要作为数据包的转发表使用。</p>
+<h4 id="queueingh">queueing.h</h4>
+<p>该文件主要负责软件交换机的入队与出队策略，它和p4程序配合，组成完整的算法逻辑，其中主要需要修改的是<code>QueueingLogicPriRL</code>类的<code>push_front</code>和<code>pop_back</code>函数。具体代码如下。</p>
+<pre class="hljs"><code><div><span class="hljs-comment">//! If priority queue \p priority of logical queue \p queue_id is full, the</span>
+<span class="hljs-comment">//! function will return `0` immediately. Otherwise, \p item will be copied to</span>
+<span class="hljs-comment">//! the queue and the function will return `1`. If \p queue_id or \p priority</span>
+<span class="hljs-comment">//! are incorrect, an exception of type std::out_of_range will be thrown (same</span>
+<span class="hljs-comment">//! if the FMap object provided to the constructor does not behave correctly).</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">push_front</span><span class="hljs-params">(<span class="hljs-keyword">size_t</span> queue_id, <span class="hljs-keyword">size_t</span> priority, <span class="hljs-keyword">const</span> T &amp;item)</span> </span>{
+    <span class="hljs-keyword">size_t</span> worker_id = map_to_worker(queue_id);
+    <span class="hljs-keyword">auto</span> &amp;q_info = queues_info.at(queue_id);
+    <span class="hljs-keyword">auto</span> &amp;w_info = workers_info.at(worker_id);
+    <span class="hljs-keyword">auto</span> &amp;q_info_pri = q_info.at(priority);
+    <span class="hljs-function">LockType <span class="hljs-title">lock</span><span class="hljs-params">(w_info.q_mutex)</span></span>;
+    <span class="hljs-keyword">if</span> (q_info_pri.size &gt;= q_info_pri.capacity) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    q_info_pri.last_sent = get_next_tp(q_info_pri);
+    w_info.queues[priority].emplace(item, queue_id, q_info_pri.last_sent);
+    q_info_pri.size++;
+    q_info.size++;
+    w_info.size++;
+    w_info.q_not_empty.notify_one();
+    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+}
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">//! Retrieves an element for the worker thread indentified by \p worker_id and</span>
+<span class="hljs-comment">//! moves it to \p pItem. The id of the logical queue which contained this</span>
+<span class="hljs-comment">//! element is copied to \p queue_id and the priority value of the served</span>
+<span class="hljs-comment">//! queue is copied to \p priority.</span>
+<span class="hljs-comment">//! Elements are retrieved according to the priority queue they are in</span>
+<span class="hljs-comment">//! (highest priorities, i.e. lowest priority values, are served first). Once</span>
+<span class="hljs-comment">//! a given priority queue reaches its maximum rate, the next queue is served.</span>
+<span class="hljs-comment">//! If no elements are available (either the queues are empty or they have</span>
+<span class="hljs-comment">//! exceeded their rate already), the function will block.</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">pop_back</span><span class="hljs-params">(<span class="hljs-keyword">size_t</span> worker_id,<span class="hljs-keyword">size_t</span> *queue_id,<span class="hljs-keyword">size_t</span> *priority,T *pItem)</span></span>{
+    <span class="hljs-keyword">auto</span> &amp;w_info = workers_info.at(worker_id);
+    <span class="hljs-function">LockType <span class="hljs-title">lock</span><span class="hljs-params">(w_info.q_mutex)</span></span>;
+    MyQ *<span class="hljs-built_in">queue</span> = <span class="hljs-literal">nullptr</span>;
+    <span class="hljs-keyword">size_t</span> index;
+    <span class="hljs-keyword">size_t</span> temp_start_priority;
+    <span class="hljs-keyword">while</span>(<span class="hljs-literal">true</span>){
+      <span class="hljs-keyword">if</span>(w_info.size == <span class="hljs-number">0</span>){
+        w_info.q_not_empty.wait(lock);
+      }<span class="hljs-keyword">else</span>{
+        <span class="hljs-keyword">auto</span> now = clock::now();
+        <span class="hljs-keyword">auto</span> next = clock::now();
+        temp_start_priority = w_info.start_priority;
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">size_t</span> pri = <span class="hljs-number">0</span>;pri &lt; nb_priorities;pri++){
+          index = (temp_start_priority + pri) % nb_priorities;
+          <span class="hljs-keyword">auto</span> &amp;q = w_info.queues[index];
+          <span class="hljs-keyword">if</span>(q.size() == <span class="hljs-number">0</span>){
+            w_info.start_priority = (index + <span class="hljs-number">1</span>) % nb_priorities;
+            <span class="hljs-comment">// w_info.deficits[index] = 100000;</span>
+            <span class="hljs-keyword">continue</span>;
+          }
+          <span class="hljs-keyword">if</span>(q.top().send &lt;= now){
+            <span class="hljs-built_in">queue</span> = &amp;q;
+            <span class="hljs-keyword">break</span>;
+          }<span class="hljs-keyword">else</span>{
+            next = q.top().send;
+            <span class="hljs-keyword">break</span>;
+          }
+        }
+        <span class="hljs-keyword">if</span>(<span class="hljs-built_in">queue</span>) <span class="hljs-keyword">break</span>;
+        w_info.q_rate_limit.wait_until(lock,next);
+      }
+    }
+    *queue_id = <span class="hljs-built_in">queue</span> -&gt; top().queue_id;
+    *priority = index;
+    *pItem = <span class="hljs-built_in">std</span>::move(<span class="hljs-keyword">const_cast</span>&lt;QE &amp;&gt;(<span class="hljs-built_in">queue</span> -&gt; top()).e);
+    <span class="hljs-built_in">queue</span> -&gt; pop();
+    <span class="hljs-keyword">auto</span> &amp;q_info = queues_info.at(*queue_id);
+    <span class="hljs-keyword">auto</span> &amp;q_info_pri = q_info.at(*priority);
+    q_info_pri.size--;
+    q_info.size--;
+    w_info.size--;
+}
+</div></code></pre>
+<p>最后将给出如何使用以上文件进行测试。</p>
+<p>将queueing.h文件拷贝到目录/behavioral-model/include/bm/bm_sim下，在/behavioral-model/targets/simple_switch目录下执行<code>make</code>命令，获得改造后的软件交换机。</p>
+<p>使用p4c对afq.p4进行编译，命令如下。</p>
+<pre class="hljs"><code><div>p4c --target bmv2 --arch v1model --std p4-<span class="hljs-number">14</span> afq.p4
+</div></code></pre>
+<p>执行完该命令后，将会获得afq.json文件。</p>
+<p>进入目录/behavioral-model/mininet，执行以下命令。</p>
+<pre class="hljs"><code><div>sudo python 1sw_demo.py --behavioral-exe ../target/simple_switch/simple_switch --json /your path/afq.json
+</div></code></pre>
+<p>执行该命令后，将会得到一个mininet终端环境。</p>
+<p>进入目录/behavioral-model/target/simple_switch，执行以下命令。</p>
+<pre class="hljs"><code><div>./runtime_CLI &lt; /your path/commands.txt
+</div></code></pre>
+<p>至此一个以AFQ为数据包调度策略的软件交换机simple_switch，将运行在mininet环境下，用户可以根据<a href="http://mininet.org/sample-workflow/">mininet使用方法</a>，自行设计实验进行测试。</p>
+<h3 id="p4-dqn-afq">p4-DQN-AFQ</h3>
+<p>用p4实现DQN-AFQ的步骤基本与AFQ一致，需要编写的文件与修改的文件分别为dqn_afq.p4、commands.txt和queueing.h。</p>
+<p>使用方法与AFQ实现时基本一样，在这里就不描述了。</p>
+
+</body>
+</html>
